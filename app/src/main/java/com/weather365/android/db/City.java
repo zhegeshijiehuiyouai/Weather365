@@ -1,11 +1,13 @@
 package com.weather365.android.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * 市
  * Created by Chen on 2017/2/17.
  */
 
-public class City {
+public class City extends DataSupport {
     private int id;
     private String cityName;
     private int cityCode;

@@ -1,11 +1,13 @@
 package com.weather365.android.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * 省份
  * Created by Chen on 2017/2/17.
  */
 
-public class Province {
+public class Province extends DataSupport {
     private int id;
     private String provinceName;
     private int provinceCode;
