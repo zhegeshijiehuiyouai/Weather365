@@ -2,9 +2,11 @@ package com.weather365.android.util;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.weather365.android.db.City;
 import com.weather365.android.db.County;
 import com.weather365.android.db.Province;
+import com.weather365.android.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -104,5 +106,23 @@ public class Utility {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 解析和风天气返回的JSON天气数据，这里用的是V5接口
+     *
+     * @param response 和风天气JSON数据
+     * @return 若成功则返回Weather对象，否则返回null
+     */
+    public static Weather handleWeatherResponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather5");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
