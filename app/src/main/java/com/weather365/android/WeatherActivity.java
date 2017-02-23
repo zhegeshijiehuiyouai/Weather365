@@ -114,9 +114,9 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.putString("weather", responseText);
                             editor.apply();
                             showWeatherInfo(weather);
-                            ToastUtil.showToast(WeatherActivity.this,"刚刚刷新了天气");
+                            ToastUtil.showToast(WeatherActivity.this, "刚刚刷新了天气");
                         } else {
-                            ToastUtil.showToast(WeatherActivity.this,"获取天气信息失败");
+                            ToastUtil.showToast(WeatherActivity.this, "获取天气信息失败");
                             //Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
                         }
                         swipeRefresh.setRefreshing(false);
@@ -128,7 +128,7 @@ public class WeatherActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, IOException e) {
-                ToastUtil.showToast(WeatherActivity.this,"获取天气信息失败");
+                ToastUtil.showToast(WeatherActivity.this, "获取天气信息失败");
                 //Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
                 swipeRefresh.setRefreshing(false);
             }
@@ -197,8 +197,11 @@ public class WeatherActivity extends AppCompatActivity {
             forecastLayout.addView(view);
         }
         //设置第三块
-        aqiText.setText(weather.aqi.city.aqi);
-        aqiQualityText.setText(weather.aqi.city.quality);
+        if (weather.aqi != null) {
+            //if 判断，防止崩溃
+            aqiText.setText(weather.aqi.city.aqi);
+            aqiQualityText.setText(weather.aqi.city.quality);
+        }
         //设置第四块
         comfortText.setText("舒适指数：" + weather.suggestion.comfort.info);
         carWashText.setText("洗车指数：" + weather.suggestion.carWash.info);
