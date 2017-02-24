@@ -1,5 +1,6 @@
 package com.weather365.android;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.weather365.android.gson.Weather;
+import com.weather365.android.service.AutoUpdateService;
 import com.weather365.android.util.HttpUtil;
 import com.weather365.android.util.ToastUtil;
 import com.weather365.android.util.Utility;
@@ -91,6 +93,9 @@ public class WeatherActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+        //设置每隔4小时自动更新天气和图片（若图片有更新）
+        Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
