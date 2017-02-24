@@ -1,9 +1,9 @@
 # Weather365
-![](https://github.com/zhegeshijiehuiyouai/Weather365/raw/master/Screenshort/a.png)
+![](https://github.com/zhegeshijiehuiyouai/Weather365/raw/master/Screenshorts/a.png)
 <br>
-![](https://github.com/zhegeshijiehuiyouai/Weather365/raw/master/Screenshort/b.png)
+![](https://github.com/zhegeshijiehuiyouai/Weather365/raw/master/Screenshorts/b.png)
 <br>
-![](https://github.com/zhegeshijiehuiyouai/Weather365/raw/master/Screenshort/c.png)
+![](https://github.com/zhegeshijiehuiyouai/Weather365/raw/master/Screenshorts/c.png)
 <br>
 一款基于郭霖《第一行代码》的天气项目，仅供学习使用。由于该项目是在学习中一点点积累起来的，所以就没有 Fork 啦 ~ ~<br>
 较原版，有以下改动<br><br>
